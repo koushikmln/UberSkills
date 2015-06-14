@@ -1,0 +1,60 @@
+/* header map section */
+/* ---------------------------------------- */
+
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: @default-color;
+
+  #map_canvas {
+    width: 100%;
+    height: 100%;
+
+    .gm-style img {
+      max-width: none;
+
+      label {
+        display: inline;
+        width: auto;
+      }
+    }
+
+    .gmnoprint {
+      display: none;
+    }
+  }
+
+  @media (max-width: @screen-sm) {
+    height: 300px;
+  }
+}
+
+
+.company-contact {
+  .contact-map-company {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: @default-color;
+
+    #contact_map_canvas_two,
+    #contact_map_canvas_one {
+      width: 100%;
+      height: 100%;
+
+      .gm-style img {
+        max-width: none;
+
+        label {
+          display: inline;
+          width: auto;
+        }
+      }
+
+      .gmnoprint {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+/* page-heading begin for about-us contact us blog */
+/* --------------------------------------- */
+.page-heading {
+
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 215px;
+
+  > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade(@gray-base, 60%);
+  }
+
+  h1 {
+    position: relative;
+    top: 60px;
+    color: #fff;
+    font-family: @font-family-secondary;
+    font-size: @font-size-h1 + 20px;
+    .text-uppercase;
+    font-weight: 800;
+    float: left;
+
+    span {
+      color: @default-color;
+    }
+
+    @media (max-width: @screen-xs) {
+      font-size: @font-size-h1;
+      font-weight: 600;
+      top: 90px;
+    }
+  }
+
+  .heading-link {
+    position: relative;
+    top: 130px;
+    float: right;
+
+    a {
+      color: #fff;
+      .text-uppercase;
+      font-weight: bold;
+
+      &:hover {
+        color: @default-color;
+      }
+    }
+
+    i {
+      color: @default-color;
+      padding: 0 3px;
+      font-weight: bold;
+    }
+
+    @media (max-width: @screen-xs) {
+      .hide;
+    }
+  }
+}

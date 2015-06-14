@@ -1,0 +1,84 @@
+/* sample page begin */
+/* --------------------------------------- */
+.sample-page-heading {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../img/content/price-listing-heading-bg.jpg) top center no-repeat;
+  background-size: cover;
+  .text-center;
+
+  > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade(@gray-base, 60%);
+  }
+
+  h1 {
+    position: relative;
+    top: 180px;
+    color: #fff;
+    font-family: @font-family-secondary;
+    font-size: @font-size-h1 + 40px;
+    .text-uppercase;
+    font-weight: 800;
+
+    span {
+      color: @default-color;
+    }
+
+    @media (max-width: @screen-sm) {
+      font-size: @font-size-h1 + 5;
+      top: 130px;
+    }
+
+    @media (max-width: @screen-xs) {
+      font-size: @font-size-h1;
+    }
+  }
+}
+
+
+.sample-page {
+  position: relative;
+  line-height: 25px;
+  padding: 30px 0;
+
+  h3 {
+    .text-uppercase;
+    font-size: @font-size-h2;
+    margin-top: 0;
+
+    @media (max-width: @screen-sm) {
+      font-size: @font-size-h2 - 4;
+    }
+  }
+
+  p {
+    font-size: @font-size-base + 1px;
+    margin-bottom: 30px;
+  }
+
+  .post-image {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    margin: 50px 0;
+    border-radius: @border-radius-small;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: @border-radius-small;
+
+    }
+
+    @media (max-width: @screen-xs) {
+      height: 300px;
+    }
+  }
+}

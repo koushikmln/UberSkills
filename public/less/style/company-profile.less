@@ -1,0 +1,435 @@
+/* Compnay profile style begin */
+/* --------------------------------------- */
+.header-search.company-profile-height {
+  height: 570px;
+
+  @media (max-width: @screen-sm) {
+    height: 390px;
+  }
+}
+
+.company-heading-view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .text-left;
+
+  .button-content {
+    position: relative;
+    top: 450px;
+    float: right;
+    z-index: 200;
+    background: fade(@gray-base, 60%);
+    padding: 15px;
+
+    @media (max-width: @screen-sm) {
+      top: 330px;
+      padding: 10px;
+    }
+
+
+    button {
+      position: relative;
+      height: 40px;
+      width: 40px;
+      background: #fff;
+      line-height: 40px;
+      .text-center;
+      border-radius: @border-radius-small;
+      margin-left: 10px;
+      color: lighten(@gray-light, 20%);
+      .transition;
+
+
+      span {
+        display: none;
+        position: absolute;
+        top: -62px;
+        left: -10px;
+        color: #ddd;
+        padding: 0 12px;
+        background: @gray-dark;
+        border-radius: @border-radius-small;
+        font-size: @font-size-base - 2px;
+        font-weight: bold;
+        .transition;
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 40%;
+          bottom: -6px;
+          height: 0;
+          width: 0;
+          border-right: 7px solid transparent;
+          border-left: 7px solid transparent;
+          border-top: 7px solid @gray-dark;
+        }
+      }
+
+      &:hover span {
+        display: block;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.active,
+      &:hover {
+        background: @default-color;
+        color: @gray-dark;
+      }
+
+      @media (max-width: @screen-sm) {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+
+        span {
+          top: -45px;
+        }
+      }
+    }
+  }
+
+
+  .company-slider-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100%;
+    width: 300%;
+    .transition;
+
+    .general-view {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 33.33%;
+      background: url(../img/content/company-heading-bg.jpg) top center no-repeat;
+      background-size: cover;
+
+      > span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: fade(@gray-base, 60%);
+      }
+
+      .logo-image {
+        position: relative;
+        top: 120px;
+        width: 270px;
+        height: 270px;
+        background: fade(@gray-base, 60%);
+        border-radius: @border-radius-small;
+        .text-center;
+
+        @media (max-width: @screen-sm) {
+          top: 80px;
+          height: 190px;
+          width: 190px;
+        }
+
+        @media (max-width: @screen-xs) {
+          top: 80px;
+          height: 140px;
+          width: 140px;
+        }
+
+        img {
+          height: 62%;
+          width: 62%;
+          margin-top: 50px;
+          border-radius: @border-radius-small;
+
+          @media (max-width: @screen-sm) {
+            margin-top: 30px;
+          }
+
+          @media (max-width: @screen-xs) {
+            margin-top: 25px;
+          }
+        }
+      }
+
+      h1 {
+        position: relative;
+        top: 140px;
+        color: #fff;
+        .text-uppercase;
+        font-weight: 800;
+        font-family: @font-family-secondary;
+
+        @media (max-width: @screen-sm) {
+          top: 80px;
+          font-size: @font-size-h3;
+        }
+
+        @media (max-width: @screen-xs) {
+          top: 80px;
+          font-size: @font-size-h4;
+        }
+      }
+    }
+
+    .company-map-view {
+      position: absolute;
+      top: 0;
+      left: 33.33%;
+      height: 100%;
+      width: 33.33%;
+
+      #company_map_canvas {
+        height: 100%;
+        width: 100%;
+
+        .gmnoprint {
+          display: none;
+        }
+      }
+    }
+
+    .company-map-street {
+      position: absolute;
+      top: 0;
+      left: 66.66%;
+      height: 100%;
+      width: 33.33%;
+
+      #company_map_canvas_street {
+        height: 100%;
+        width: 100%;
+
+       .gm-style img {
+         max-width: none;
+
+         label {
+           display: inline;
+           width: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+.company-profile {
+  padding-top: 30px;
+
+  h2 {
+    .text-uppercase;
+    margin: 0;
+  }
+
+  h4 {
+    margin-bottom: 30px;
+    .text-uppercase;
+    font-family: @font-family-secondary;
+    font-weight: 800;
+
+    span {
+      color: lighten(@gray-light, 35%);
+    }
+  }
+
+  h5 {
+    margin: 0;
+    padding-top: 5px;
+    .text-uppercase;
+    font-family: @font-family-secondary;
+
+    a {
+      color: lighten(@gray-light, 35%);
+    }
+  }
+
+  .social-link {
+    margin-top: -40px;
+
+    ul li {
+      height: 40px;
+      width: 40px;
+      background-color: @default-color;
+      .text-center;
+      border-radius: @border-radius-small;
+      margin-right: 7px;
+      .transition;
+
+      &:hover {
+        background-color: darken(@default-color, 3%);
+      }
+
+      a {
+        display: block;
+        color: @base-color;
+        line-height: 40px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      display: none;
+
+    }
+  }
+
+  .company-text {
+    padding-top: 40px;
+    padding-bottom: 10px;
+
+    p {
+      font-size: @font-size-base + 1px;
+      line-height: 25px;
+    }
+  }
+
+  .company-service {
+    padding-bottom: 10px;
+    li a {
+      display: block;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: @border-radius-small;
+      border: 1px solid lighten(@gray-light, 30%);
+      color: lighten(@gray-light, 35%);
+      font-weight: 600;
+      .text-capitalize;
+
+      &:hover {
+        color : lighten(@gray-light, 20%);
+      }
+    }
+  }
+
+  .company-ratings {
+    position: relative;
+
+    .all-rating {
+      position: relative;
+      width: 100%;
+      margin: 0 0 10px 0;
+
+      .company-rating-box {
+        border-radius: 0;
+        border-right: 0;
+        float: left;
+
+        &:last-child {
+          border-right: 1px solid lighten(@gray-light, 30%);
+          border-radius: 0 @border-radius-small @border-radius-small 0;
+        }
+
+        &:first-child {
+          border-radius: @border-radius-small 0 0 @border-radius-small;
+        }
+
+        @media (max-width: @screen-lg) {
+          border-radius: @border-radius-small;
+          border-right: 1px solid lighten(@gray-light, 30%);
+          margin: 5px;
+        }
+      }
+    }
+
+
+    .company-rating-box {
+      position: relative;
+      margin: 0;
+      padding: 20px 10px;
+      width: 165px;
+      .text-center;
+      .text-uppercase;
+      font-size: @font-size-base;
+      font-weight: bold;
+      border: 1px solid lighten(@gray-light, 30%);
+      border-radius: @border-radius-small;
+
+      ul {
+        margin-bottom: 10px;
+        li {
+          padding: 0;
+
+          a {
+            font-size: @font-size-base + 4px;
+          }
+        }
+      }
+
+      h6 {
+        margin: 0;
+        font-family: @font-family-secondary;
+        font-weight: 800;
+        font-size: @font-size-h6 + 2px;
+
+      }
+
+      @media (max-width: @screen-xs) {
+        width: 120px;
+        ul li a {
+          font-size: @font-size-base;
+        }
+      }
+    }
+
+    .rating-with-details {
+      position: relative;
+      padding: 5px 0;
+
+      .single-content{
+        position: relative;
+        padding: 12px 0;
+        padding-left: 180px;
+
+        @media (max-width: @screen-xs) {
+          padding-left: 135px;
+        }
+
+        .company-rating-box {
+          position: absolute;
+          top: 10px;
+          left: 0;
+        }
+
+        .meta {
+          display: block;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          line-height: 1em;
+          font-weight: bold;
+          color: lighten(@gray-light, 35%);
+          .text-uppercase;
+          font-size: @font-size-base + 1px;
+
+          a {
+            color: inherit;
+            font-family: @font-family-secondary;
+          }
+        }
+
+        p {
+          margin: 0;
+          font-size: 15px;
+          line-height: 22px;
+          color: @gray-dark;
+        }
+      }
+    }
+  }
+
+  .comments-section {
+    padding: 20px 0 40px 0;
+  }
+}
+
+
+.company-blog .post-image {
+  padding-bottom: 15px;
+
+}

@@ -1,0 +1,264 @@
+/* hesader search bar */
+/* -------------------------------- */
+
+.header-search {
+  position: relative;
+  width: 100%;
+
+
+
+  .header-search-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 15px 0;
+    background-color: fade(@gray-base, 50%);
+    z-index: 999;
+
+    .search-toggle {
+      display: none;
+      position: absolute;
+      top: 55px;
+      left: 0;
+      width: 100%;
+      background: fade(@gray-base, 80%);
+      padding: 20px 0 45px;
+      border-radius: 0 0 @border-radius-small @border-radius-small;
+      overflow: auto;
+
+      @media (max-width: @screen-sm) {
+        padding: 20px 20px 40px;
+      }
+
+      @media (max-width: @screen-md) {
+        height: 250px;
+        overflow: auto;
+      }
+
+      .distance-range,
+      .slider-range-search-day {
+        margin-bottom: 15px;
+
+        p {
+          margin-bottom: 10px;
+          label,
+          input {
+            font-size: @font-size-base + 3px;
+            color: #fff;
+            font-weight: normal;
+            background: transparent;
+          }
+        }
+      }
+
+      p {
+        color: #fff;
+        margin: 0;
+        font-size: @font-size-base + 2px;
+      }
+
+      .select-country,
+      .category-search,
+      .region,
+      .address {
+        width: 24%;
+        float: left;
+        height: 40px;
+        margin-top: 10px;
+        margin-right: 15px;
+        border: 1px solid lighten(@gray-light, 25%);
+        border-radius: @border-radius-small;
+
+        .uou-custom-select {
+         border-radius: @border-radius-small;
+        }
+
+        @media (max-width: @screen-lg) {
+          width: 23%;
+        }
+
+        @media (max-width: @screen-sm) {
+          width: 46%;
+        }
+
+        @media (max-width: @screen-xs) {
+          width: 100%;
+        }
+      }
+
+      .category-search {
+        margin-right: 0;
+      }
+
+      .search-btn {
+        display: block;
+        margin-top: 10px;
+        width: 100px;
+        float: right;
+
+        @media (max-width: @screen-lg) {
+          margin-right: 30px;
+
+        }
+
+        @media (max-width: @screen-md) {
+          margin-right: 14px;
+        }
+
+        @media (max-width: @screen-sm) {
+          margin-right: 40px;
+        }
+
+        @media (max-width: @screen-xs) {
+          margin-right: 0;
+        }
+      }
+
+    }
+
+    .toggle-btn,
+    .search-btn {
+      float: left;
+      width: 40px;
+      height: 40px;
+      color: @gray-light;
+      background-color: #fff;
+      .transition;
+
+      &:hover {
+        background-color: @default-color;
+      }
+    }
+
+    @media (max-width: @screen-sm) {
+      .search-btn {
+        display: none;
+      }
+    }
+
+
+    .keywords {
+      float: left;
+      width: 31%;
+      height: 40px;
+      margin-left: 10px;
+
+      input {
+        color: @base-color;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    .select-location,
+    .category-search {
+      float: left;
+      width: 30%;
+      height: 40px;
+      border-left: 1px solid lighten(@gray-light, 20%);
+    }
+
+    .search-btn {
+      background-color: @default-color;
+      color: @gray-dark;
+      font-size: 16px;
+
+      &:hover {
+        background-color: lighten(@default-color, 10%);
+      }
+    }
+
+    .category-search {
+      margin-right: 10px;
+      background-color: transparent;
+
+     .uou-custom-select {
+      border-radius: 0 @border-radius-small @border-radius-small 0;
+     }
+    }
+
+    @media (max-width: @screen-lg) {
+      .keywords,
+      .select-location,
+      .category-search {
+        width: 29%;
+      }
+    }
+
+    @media (max-width: @screen-md) {
+      .keywords,
+      .select-location,
+      .category-search {
+        width: 27%;
+      }
+    }
+
+    @media (max-width: @screen-sm) {
+      .search-value {
+        .select-location,
+        .category-search {
+          .hide;
+        }
+
+        .keywords {
+          width: 88%;
+          margin-right: 10px;
+
+          input {
+            border-bottom-right-radius: @border-radius-small;
+            border-top-right-radius: @border-radius-small;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 690px) {
+      .search-value {
+        .keywords {
+          width: 85%;
+        }
+      }
+    }
+
+    @media (max-width: 560px) {
+      .search-value {
+        .keywords {
+          width: 80%
+        }
+      }
+    }
+
+    @media (max-width: 400px) {
+      .search-value {
+        .keywords {
+          width: 70%
+        }
+      }
+    }
+  }
+}
+
+.map {
+  .header-search-bar {
+    background-color: @gray-dark;
+  }
+}
+
+@media (max-width: @screen-xs) {
+  .header-search.slider-home {
+    height: 330px;
+  }
+
+}
+
+
+
+
+.sticky {
+  position: fixed !important;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 9995!important;
+  background-color: @gray-dark !important;
+}

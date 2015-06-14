@@ -1,0 +1,80 @@
+/* blog-post style begin */
+/* --------------------------------------- */
+.blog-post {
+  position: relative;
+
+  p {
+    line-height: 24px;
+    font-size: @font-size-base + 1px;
+  }
+
+  .post-with-image {
+    padding-bottom: 40px;
+  }
+
+  .share-this {
+    h4 {
+      .text-uppercase;
+      padding-top: 20px;
+    }
+
+    ul li {
+      height: 50px;
+      width: 50px;
+      background-color: @default-color;
+      .text-center;
+      border-radius: @border-radius-small;
+      margin-right: 7px;
+      .transition;
+
+      &:hover {
+        background-color: darken(@default-color, 3%);
+      }
+
+      a {
+        display: block;
+        color: @base-color;
+        line-height: 50px;
+        font-size: 20px;
+      }
+
+      @media (max-width: @screen-lg) {   // 1200px
+        height: 40px;
+        width: 40px;
+
+        a {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+}
+
+
+.back-to-list {
+  margin: 50px 0 20px 0;
+
+  @media (max-width: @screen-md) {
+    margin:50px 0 70px 0;
+  }
+
+  .back-list {
+    padding: 10px 15px;
+    border-radius: @border-radius-small;
+    border: 1px solid lighten(@gray-light, 40%);
+    font-weight: bold;
+    font-size: 13px;
+
+    .fa {
+      padding-right: 10px;
+    }
+
+    &:hover {
+      color: @gray-light;
+    }
+  }
+}
+
+
+
+

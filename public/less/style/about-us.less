@@ -1,0 +1,109 @@
+/* about-us content begin */
+/* --------------------------------------- */
+.about-us-heading {
+  background: url(../img/content/about-us-heading-bg.jpg) top center no-repeat;
+}
+
+.about-us {
+  position: relative;
+  width: 100%;
+  height: auto;
+  .text-center;
+  line-height: 25px;
+
+  > h3 {
+    font-weight: 400;
+    font-size: @font-size-h2;
+    .text-uppercase;
+
+    strong {
+      font-weight: 800;
+    }
+
+    @media (max-width: @screen-xs){
+      margin-top: 0;
+    }
+  }
+
+  > p {
+    .text-left;
+    font-size: 16px;
+
+  }
+
+  .team {
+    padding-top: 30px;
+  }
+
+  .member-details {
+    position: relative;
+    .text-center;
+
+    .porfile-pic {
+      position: relative;
+      margin: 0 auto;
+      width: 265px;
+      height: 270px;
+      overflow: hidden;
+      border-radius: @border-radius-small;
+      .text-center;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      ul {
+        position: relative;
+        top: -80px;
+        margin-left: 10px;
+        z-index: 50;
+        .text-center;
+
+        li {
+          height: 50px;
+          width: 50px;
+          background-color: darken(@default-color, 5%);;
+          .text-center;
+          border-radius: @border-radius-small;
+          margin-right: 7px;
+
+          &:hover {
+            background-color: lighten(@default-color, 10%);
+          }
+
+          a {
+            color: @base-color;
+            line-height: 50px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    h3 {
+      margin-bottom: 0;
+      font-weight: 800;
+      font-size: @font-size-h3;
+      .text-uppercase;
+
+      a:hover {
+        color: lighten(@gray-dark, 10%);
+      }
+    }
+
+    .title {
+      .text-uppercase;
+      padding-bottom: 15px;
+      color: lighten(@gray-light, 10%);
+      font-size: @font-size-base + 3px;
+    }
+
+    p {
+      .text-center;
+      margin: 0;
+      font-size: @font-size-base + 2px;
+      padding-bottom: 40px;
+    }
+  }
+}

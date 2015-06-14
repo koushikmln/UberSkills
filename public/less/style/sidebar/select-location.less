@@ -1,0 +1,64 @@
+/* select location */
+/* --------------------------------------- */
+
+.page-sidebar {
+  .location-details {
+    position: relative;
+
+    .select-country ,
+    .select-state ,
+    .zip-code  {
+      position: relative;
+      height: 30px;
+      margin-bottom: 10px;
+
+      label {
+        position: absolute;
+        left: 0;
+        width: 78px;
+        z-index: 998;
+        height: inherit;
+        line-height: 30px;
+        background-color: @gray-dark;
+        border-radius: @border-radius-small 0 0 @border-radius-small;
+        color: #fff;
+        font-weight: @font-weight-large;
+        font-size: 12px;
+        .text-center;
+      }
+
+      .placeholder,
+      input {
+        font-size: 13px;
+        font-weight: @font-weight-large;
+        padding-left: 90px;
+        border: 1px solid lighten(@gray-light, 30%);
+      }
+      .select-clone {
+        z-index: 997;
+        padding-left: 79px;
+        width: 100.5%;
+        height: auto;
+        overflow: auto;
+        border: 0;
+
+        li {
+          border: 0!important;
+          &:hover {
+            border: 0 !important;
+          }
+        }
+      }
+    }
+
+    .uou-custom-select .fa {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 30px;
+      padding: 10px 11px;
+      font-size: 8px;
+      border-left: 1px solid lighten(@gray-light, 30%);
+    }
+  }
+}

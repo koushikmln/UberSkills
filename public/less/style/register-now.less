@@ -1,0 +1,135 @@
+/* Rgister now section  */
+/* ====================================== */
+.register-content {
+  position: relative;
+  background: url(../img/content/register_bg.jpg) top center no-repeat;
+  .text-center;
+  width: 100%;
+
+  h1 {
+    margin: 0;
+    color: #fff;
+    font-weight: 400;
+    font-size: @font-size-h2; // 30px;
+    font-family: @font-family-secondary;
+    padding: @padding-large-vertical * 4 0;
+    background: @base-color;
+
+    .text-uppercase;
+  }
+
+  .registration-details {
+    position: relative;
+    padding: 100px 0;
+    background-color: fade(@default-color, 75%);
+    .text-center;
+    width: 100%;
+
+    .regular-member {
+      float: left;
+      margin-left: 50px;
+
+      @media (max-width: @screen-lg) {
+        margin-left: 30px;
+      }
+
+      @media (max-width: @screen-md) {
+        margin-left: 18px;
+      }
+
+      @media (max-width: @screen-sm) {
+        margin-left: 0;
+      }
+    }
+
+    .box {
+      position: relative;
+      width: 35%;
+      padding: 30px;
+      .text-center;
+      border: 3px solid @gray-dark;
+      border-radius: @border-radius-small;
+
+      h2{
+        margin: 0;
+        .text-uppercase;
+        font-size: @font-size-h3 + 2; // 26px
+        padding-bottom: 20px;
+        font-weight: 400;
+      }
+
+      p {
+        margin-bottom: 10px;
+        font-weight: @font-weight-large; // 700
+
+        .fa {
+          padding-right: 6px;
+        }
+      }
+
+      a {
+        margin-top: 15px;
+        font-size: 13px;
+      }
+    }
+
+    .alternate {
+      float: left;
+      margin: 60px 70px;
+      .text-center;
+
+      @media (max-width: @screen-md) {
+        margin: 100px 40px;
+      }
+
+      h2 {
+        .text-center;
+        margin: 0;
+        height: 90px;
+        width: 90px;
+        line-height: 90px;
+        font-size: @font-size-h3 + 2px;
+        background-color: @base-color;
+        color: @default-color;
+        border-radius: 50%;
+      }
+    }
+
+    .business-member {
+      float: left;
+    }
+
+    @media (max-width: @screen-lg) {   // 1200px
+      padding: 50px 0;
+    }
+
+    @media (max-width: @screen-sm) {   // 768px
+
+      .alternate {
+          margin: 100px 20px;
+      }
+
+      .box {
+        width: 40%;
+      }
+    }
+
+     @media (max-width: 700px ) {    // 480px
+      .box,
+      .alternate,
+      .business-member {
+        float: none;
+      }
+
+      .box {
+        width: 100%;
+      }
+
+      .alternate {
+        height: auto;
+        .text-center;
+        margin: 20px 40%;
+      }
+    }
+  }
+}

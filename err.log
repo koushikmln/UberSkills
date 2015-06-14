@@ -1,0 +1,201 @@
+Fri, 15 May 2015 15:29:54 GMT express-session deprecated undefined resave option; provide resave option at app.js:33:9
+Fri, 15 May 2015 15:29:54 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:33:9
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+{ [ValidationError: users validation failed]
+  message: 'users validation failed',
+  name: 'ValidationError',
+  errors: 
+   { phone: 
+      { [ValidatorError: Path `phone` is required.]
+        properties: [Object],
+        message: 'Path `phone` is required.',
+        name: 'ValidatorError',
+        kind: 'required',
+        path: 'phone',
+        value: null } } }
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+Error: Failed to lookup view "error" in views directory "/home/ubuntu/Consult/views"
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:555:17)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.listen.host (/home/ubuntu/Consult/app.js:74:7)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)
+    at IncomingMessage.next (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:261:10)
+    at fn (/home/ubuntu/Consult/node_modules/express/lib/response.js:933:25)
+    at EventEmitter.app.render (/home/ubuntu/Consult/node_modules/express/lib/application.js:557:14)
+    at ServerResponse.res.render (/home/ubuntu/Consult/node_modules/express/lib/response.js:938:7)
+    at app.use.res.render.message (/home/ubuntu/Consult/app.js:63:9)
+    at Layer.handle_error (/home/ubuntu/Consult/node_modules/express/lib/router/layer.js:58:5)
+    at trim_prefix (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:300:13)
+    at /home/ubuntu/Consult/node_modules/express/lib/router/index.js:270:7
+    at Function.proto.process_params (/home/ubuntu/Consult/node_modules/express/lib/router/index.js:321:12)

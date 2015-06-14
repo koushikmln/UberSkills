@@ -1,0 +1,104 @@
+/* categories */
+/* ------------------------------------ */
+
+#categories {
+  position: relative;
+  margin-top: 35px;
+  color: @gray-dark;
+  margin-bottom: 30px;
+
+  .accordion {
+    position: relative;
+    display: block;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+
+        background-color: @gray-bg;
+        border-top: 1px solid lighten(@gray-light, 35%);
+        border-right: 1px solid lighten(@gray-light, 35%);
+        border-left: 3px solid transparent;
+        .transition;
+
+        &:hover {
+          background-color: @default-color;
+        }
+
+        a{
+          display: block;
+          padding: 15px 0 15px 30px;
+          .text-uppercase;
+          font-size: 15px;
+          font-weight: @font-weight-large;
+
+          .fa {
+            padding-right: 10px;
+          }
+
+          &:hover {
+            color: inherit;
+          }
+
+          span {
+            font-weight: normal;
+            display: block;
+            margin: 0;
+            font-size: 13px;
+            .text-capitalize;
+          }
+        }
+
+        div {
+          display: none;
+          padding-top: 5px;
+          padding-left: 30px;
+
+          a{
+            .text-capitalize;
+            padding: @padding-base-vertical 0;
+            font-size: 15px;
+            font-weight: normal;
+
+            &:before {
+              content: @fa-var-plus-square-o;
+              position: relative;
+              top: 2px;
+              .fa;
+              padding-right: 10px;
+              font-size: 16px;
+            }
+
+            &.active {
+              font-weight: @font-weight-large;
+
+              &:before {
+                content: @fa-var-minus-square-o;
+              }
+            }
+
+            &:hover {
+              color: inherit;
+            }
+          }
+        }
+
+        &.active {
+          background-color: #fff;
+          border-right: 0;
+          border-left: 3px solid @default-color;
+           div {
+            display: block;
+          }
+        }
+
+        &:last-child {
+          border-bottom: 1px solid lighten(@gray-light, 30%);
+        }
+      }
+    }
+  }
+}

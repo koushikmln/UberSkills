@@ -1,0 +1,34 @@
+/* home-with-slider style begin */
+/* --------------------------------------- */
+
+.home-with-slide {
+  position: relative;
+  z-index: 100;
+  background: #fff;
+  padding-right: 30px;
+
+  @media (max-width: @screen-md) {
+    border-radius: @border-radius-small @border-radius-small 0 0;
+    padding-left: 30px;
+    padding-top: 30px;
+
+    .change-view {
+      .filter-input {
+        input {
+          top: -60px;
+        }
+      }
+    }
+  }
+
+
+  .custom-search {
+    padding: 20px 0 0 25px;
+  }
+
+  .tab-pane{
+    .row {
+      padding-top: 0 !important;
+    }
+  }
+}

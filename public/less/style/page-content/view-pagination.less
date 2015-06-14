@@ -1,0 +1,139 @@
+/* view changer */
+
+.change-view {
+  position: relative;
+  z-index: 99;
+  top: 50px;
+  color: @gray-dark;
+
+  @media (max-width: @screen-md) {
+    top: 65px;
+  }
+
+  .filter-input {
+    input {
+      position: absolute;
+      right: 0;
+      top: -45px;
+      width: 190px;
+      height: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid lighten(@gray-light, 30%);
+    }
+  }
+
+  button {
+    height: 30px;
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    background-color: #fff;
+    color: lighten(@gray-light, 30%);
+    border: 1px solid lighten(@gray-light, 30%);
+    border-radius: @border-radius-small;
+
+    .fa {
+      font-size: 11px;
+    }
+
+    &.active {
+      background: @default-color;
+      color: @gray-dark;
+      border: 0;
+    }
+
+  }
+  .sort-by {
+    position: relative;
+    width: 175px;
+    height: 30px;
+    float: left;
+
+    .value-holder {
+        font-size: 13px;
+        font-weight: @font-weight-large;
+        border: 1px solid lighten(@gray-light, 30%);
+    }
+
+    .uou-custom-select{
+      position: relative;
+       .fa {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 30px;
+        padding: 10px 11px;
+        font-size: 8px;
+        border-left: 1px solid lighten(@gray-light, 30%);
+      }
+    }
+  }
+
+  .pagination {
+    float: right;
+  }
+
+  @media (max-width: @screen-sm) {   // 786px
+   button,
+   .pagination,
+   .filter-input,
+   .sort-by {
+      display: none;
+    }
+  }
+}
+
+
+
+.pagination {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    float: left;
+    height: 30px;
+    width: 30px;
+    .text-center;
+    margin-left: 10px;
+    border: 1px solid lighten(@gray-light, 30%);
+    border-radius: @border-radius-small;
+    .transition;
+
+    a {
+      line-height: 30px;
+
+      .fa {
+        position: relative;
+        top: -2px;
+      }
+
+      &:hover {
+        color: @gray-dark;
+      }
+    }
+
+    &.active,
+    &:hover {
+      background-color: @default-color;
+      border: 0;
+      border: 1px solid transparent;
+    }
+  }
+
+  @media (max-width: @screen-sm) {   // 786px
+    display: none;
+  }
+}
+
+
+.pagination-center {
+  position: relative;
+  padding-top: 20px;
+  .text-center;
+  float: right;
+  width: 69%;
+}
+
+

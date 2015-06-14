@@ -1,0 +1,119 @@
+/* Classified content style  */
+/* ======================================== */
+
+.classifieds-content {
+  position: relative;
+  padding: 45px 0 60px;
+  background: url(../img/content/calssifieds_bg.jpg) top center no-repeat;
+  background-size: cover;
+
+  .heading-section {
+    position: relative;
+
+    h1 {
+      margin: 0;
+      padding-bottom: 20px;
+      .text-uppercase;
+      float: left;
+      font-size: @font-size-h3 + 2px;
+      padding-right: @padding-small-horizontal * 2; // 20px
+    }
+
+    a {
+      float: left;
+    }
+    form {
+      position: relative;
+      float: right;
+      width: 270px;
+      height: 30px;
+
+      input[type="text"] {
+        width: 270px;
+        height: 30px;
+        color: @base-color;
+        padding: 2px 30px 2px 10px;
+        border: 1px solid darken(@gray-lighter, 10%);
+        border-radius: @border-radius-small;
+        .tab-focus();
+        }
+
+      button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 2px 8px;
+        height: 30px;
+        background-color: transparent;
+        border-left: 1px solid darken(@gray-lighter, 10%);
+
+        .fa {
+          color: darken(@gray-lighter, 20%);
+        }
+      }
+    }
+
+    @media (max-width: @screen-sm) {    // 786px
+      h1 {
+        float: none;
+        padding-bottom: 10px;
+      }
+
+      form{
+        float: none;
+      }
+
+      a {
+        float: none;
+        margin-bottom: 10px;
+      }
+    }
+
+
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+
+  .classifieds-category {
+    position: relative;
+
+    a span {
+      color: darken(@gray-lighter, 30%);
+    }
+
+    a:hover span {
+      color: @default-color;
+    }
+
+    > li > a {
+      .text-uppercase;
+      padding-top: 45px;
+      display: block;
+      font-size: @font-size-base + 1px;
+      font-weight: @font-weight-large;
+      padding-bottom: @padding-small-horizontal + 5px;
+      border-bottom: 1px solid darken(@gray-lighter, 20%);
+
+      .fa {
+        padding-right: 15px;
+      }
+    }
+
+    > li .sub-category {
+      margin-top: 12px;
+      font-size: 15px;
+      .text-capitalize;
+
+      li {
+        padding: 4px 0;
+      }
+    }
+  }
+}

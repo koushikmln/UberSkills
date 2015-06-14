@@ -1,0 +1,154 @@
+/* contact-us style begin */
+/* --------------------------------------- */
+.contact-us-heading {
+  background: url(../img/content/contact-us-heading-bg.jpg) top center no-repeat;
+
+}
+
+.contact-us {
+  position: relative;
+
+  h3 {
+    font-weight: 400;
+    font-size: @font-size-h2;
+    .text-uppercase;
+
+    strong {
+      font-weight: 800;
+    }
+
+    @media (max-width: @screen-xs){
+      margin-top: 0;
+    }
+  }
+
+  .contacy-us-map-section {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: @border-radius-small;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    #contact_map_canvas {
+      height: 100%;
+      width: 100%;
+      border-radius: @border-radius-small;
+
+      .gm-style img {
+        max-width: none;
+
+        label {
+          display: inline;
+          width: auto;
+        }
+      }
+
+      .gmnoprint {
+        display: none;
+      }
+    }
+  }
+
+  h5 {
+    .text-capitalize;
+    font-size: @font-size-h5 + 2px;
+  }
+
+  .address-details {
+    position: relative;
+    padding-bottom: 20px;
+    width: 280px;
+
+    .fa {
+
+      float: left;
+      height: 40px;
+      width: 40px;
+      border-radius: @border-radius-small;
+      background: @default-color;
+      line-height: 40px;
+      .text-center;
+    }
+
+    p {
+      float: left;
+      padding-left: 18px;
+      margin: 0;
+      font-size: @font-size-base + 1px;
+      color: @gray-light;
+
+      span {
+        display: block;
+      }
+
+      strong {
+        color: @gray-dark;
+      }
+    }
+  }
+
+  .contact-form {
+    position: relative;
+    padding: 30px;
+    background: @gray-bg;
+    border-radius: @border-radius-small;
+    border: 1px solid lighten(@gray-light, 40%);
+
+    input {
+      border: 1px solid lighten(@gray-light, 40%);
+      height: 40px;
+      margin-bottom: 20px;
+
+      &:focus {
+        border-color: lighten(@gray-light, 20%);
+      }
+
+      &:first-child {
+        width: 47%;
+        float: left;
+
+        @media (max-width: @screen-sm) {
+          float: none;
+          width: 100%;
+        }
+      }
+    }
+
+    input[type="email"] {
+      width: 47%;
+      float: right;
+
+      @media (max-width: @screen-sm) {
+        float: none;
+        width: 100%;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      outline: none;
+      border-radius: @border-radius-small;
+      border: 1px solid lighten(@gray-light, 40%);
+      resize: none;
+      overflow: auto;
+      font-size: 15px;
+
+      &:focus {
+        border-color: lighten(@gray-light, 20%);
+      }
+    }
+
+    .btn {
+      padding: 8px 15px;
+      font-weight: bold;
+
+      .fa {
+        padding-right: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,158 @@
+/* header-siler content */
+/* ----------------------------------- */
+
+.slider-home {
+  position: relative;
+
+  #map_canvas {
+    display: none;
+  }
+}
+
+.slider-content {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  height: 650px;
+  overflow: visible;
+
+  @media (max-width: @screen-md) {
+    height: 620px;
+  }
+
+  @media (max-width: @screen-sm) {
+    height: 420px;
+  }
+
+  @media (max-width: @screen-xs) {
+    height: 320px;
+  }
+
+  #home-slider {
+    position: relative;
+    width: 100%;
+    height: 920px;
+
+    @media (max-width: @screen-md) {
+      height: 650px;
+    }
+
+    @media (max-width: @screen-sm) {
+      height: 450px;
+    }
+
+    @media (max-width: @screen-xs) {
+      height: 350px;
+    }
+
+    .item {
+      position: relative;
+      > img {
+        display: block;
+        width: 100%;
+        height: 920px;
+
+        @media (max-width: @screen-md) {
+          height: 650px;
+        }
+
+        @media (max-width: @screen-sm) {
+          height: 450px;
+        }
+
+        @media (max-width: @screen-xs) {
+          height: 350px;
+        }
+      }
+
+      .slide-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: fade(@gray-base, 50%);
+        .text-center;
+
+        img {
+          position: relative;
+          top: 240px;
+
+          @media (max-width: @screen-sm) {
+            top: 140px
+          }
+
+          @media (max-width: @screen-xs) {
+            top: 90px;
+            height: 50px;
+            width: 185px;
+          }
+        }
+
+        h1 {
+          position: relative;
+          top: 220px;
+          .text-uppercase;
+          color: #fff;
+          font-size: @font-size-h1 + 40px;
+          font-family: @font-family-secondary;
+          font-weight: 800;
+
+          span {
+            color: @default-color;
+          }
+
+          @media (max-width: @screen-sm) {
+            font-size: @font-size-h1 + 15px;
+            top: 100px;
+          }
+
+          @media (max-width: @screen-xs) {
+            font-size: @font-size-h1;
+            top: 70px;
+          }
+        }
+
+        h2 {
+          position: relative;
+          top: 165px;
+          color: #fff;
+          .text-uppercase;
+          font-size: @font-size-h1 + 10;
+
+          @media (max-width: @screen-sm) {
+            font-size: @font-size-h1;
+            top: 70px;
+          }
+
+          @media (max-width: @screen-xs) {
+            font-size: 25px;
+            top: 50px;
+
+          }
+        }
+      }
+    }
+  }
+
+  .customNavigation {
+    .btn {
+      padding: 30px 18px;
+      background-color: @default-color;
+      font-size: 25px;
+      .transition;
+
+      &.prev {
+        position: absolute;
+        top: 58%;
+        left: -2px;
+      }
+
+      &.next {
+        position: absolute;
+        top: 58%;
+        right: -2px;
+      }
+    }
+  }
+}
