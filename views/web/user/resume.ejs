@@ -108,7 +108,7 @@
 
         <!-- CALL TO ACTION -->
         <div class="header-call-to-action">
-          <a href="#" class="btn btn-default"><i class="fa fa-plus"></i> Add Listing</a>
+          <a href="/users/listing" class="btn btn-default"><i class="fa fa-plus"></i> Add Listing</a>
         </div><!-- END .HEADER-CALL-TO-ACTION -->
 
       </div><!-- END .CONTAINER -->
@@ -204,30 +204,29 @@
     </div> <!-- end .container -->
   </header> <!-- end #header -->
   <div class="container" style="margin-top:80px; padding:20px;">
-  <% if(alert){ %>
-  <% if(reg_error.length==0){ %>
+    <% if(reg_success.length>0){ %>
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <div class="alert alert-success alert-dismissable" style="color:#4AC948">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-           Registration Successful. Please Login to Continue.
+        <div class="alert alert-success alert-dismissable" style="background:none;">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%= reg_success[0] %>
         </div>
       </div>
     </div>
-  <% } else{ %>
+    <% } %>
+    <% if(reg_error.length>0){ %>
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <div class="alert alert-success alert-dismissable" style="color:#DD0000">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-           <%= reg_error[0] %>
+        <div class="alert alert-danger alert-dismissable" style="background:none; color:#DD0000">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%= reg_error[0] %>
         </div>
       </div>
     </div>
-  <% } %>
-  <% } %>
+    <% } %>
     <div class="row clearfix">
       <div class="col-md-6 column">
-        <h1>Step 2/4</h1>
+        <h1>Professional Details</h1>
         <div class="progress progress-striped active">
           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:25%">
           <center>Progress:25%</center>
@@ -238,36 +237,177 @@
           .form-group{
             padding:1.5%;
           }
+          .education-list{
+            padding-top:10px;
+          }
+          .education-list li{
+            display: block;
+            padding: 4px;
+            margin:3px;
+            border: 1px solid #000000;
+            color: #333333;
+            font-weight: 300;
+            text-transform: capitalize;
+          }
+          .education-list li a {
+            float:right;
+            color: #666666;
+          }
+          .education-list li a:hover{
+            color: #CC0000;
+          }
+          .skills-list{
+            padding-top:10px;
+          }
+          .skills-list li{
+            display: inline-table;
+            padding: 4px;
+            margin:3px;
+            border-radius: 3px;
+            border: 1px solid #000000;
+            color: #333333;
+            font-weight: 300;
+            text-transform: capitalize;
+          }
+          .skills-list li a {
+            color: #666666;
+          }
+          .skills-list li a:hover{
+            color: #CC0000;
+          }
         </style>
           <div  class="form-group" style="margin-left:1%;">
-            <label> Areas of Expertise</label>
-            <div class="checkbox checkbox-info checkbox-circle">
+            <h4 style="padding:0px;margin:0px;">Areas of Expertise</h4>
+            <small style="font-weight:normal;">(Select Atleast one.)</small>
+            <div class="checkbox checkbox-info checkbox-square">
               <input id="college" name="college" value="college" class="styled" type="checkbox" >
               <label for="college">
                 College
               </label>
             </div>
-            <div class="checkbox checkbox-info checkbox-circle">
+            <div class="checkbox checkbox-info checkbox-square">
               <input id="higher_education" name="higher_education" value="higher_education" class="styled" type="checkbox" >
               <label for="higher_education">
                 Higher Education
               </label>
             </div>
-            <div class="checkbox checkbox-info checkbox-circle">
+            <div class="checkbox checkbox-info checkbox-square">
               <input id="job" class="styled" name="job" value="job" type="checkbox" >
               <label for="job">
                 Job
               </label>
             </div>
-            <div class="checkbox checkbox-info checkbox-circle">
+            <div class="checkbox checkbox-info checkbox-square">
               <input id="intern" class="styled" name="intern" value="intern" type="checkbox">
               <label for="intern">
                 Training/Internship
               </label>
             </div>
           </div>
+          <div class="row clearfix" style="margin-left:2%;">
+            <h4 style="padding:0px;margin-top:0px;margin-bottom:3px;">Skills</h4>
+            <div class="skills-list">
+              <ul class="list-inline">
+                <% for(var i=0;i<user.skills.length;i++){ %>
+                <li><%= user.skills[i] %> <a title="Remove" onclick="removeSkill('<%= user.skills[i] %>')"><i class="fa fa-close" ></i></a></li>
+                <% } %>
+              </ul>
+            </div>
+            <div class="col-md-6 column" style="padding:0px;margin:0px;">
+               <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="skills">Add Skills</label><input type="text" placeholder="Add Skills" list="input-skills" class="form-control" id="skills" name="skills"/>
+                   <datalist id="input-skills">
+                      <option value="text">
+                      <option value="password">
+                      <option value="email">
+                      <option value="checkbox">
+                   </datalist>
+              </div>
+            </div>
+            <div class="col-md-6 column">
+               <h5 style="padding:0px;margin-top:0px;margin-bottom:3px;">&nbsp;</h5>
+               <button onclick="addSkill();" type="button" class="btn btn-default" style="width:50%;"><i class="fa fa-plus"></i> Add Skill</button>
+            </div>
+          </div>
+          <div class="row clearfix" style="margin-left:2%;">
+            <h4 style="padding:0px;margin-top:0px;margin-bottom:3px;">Education</h4>
+            <div class="education-list">
+              <ul class="list-inline">
+              <% for(var i=0;i<user.education.length;i++){ %>
+                <li>
+                  <div>
+                    <b><%= user.education[i].name %></b><a title="Remove" onclick="removeEducation('<%= user.education[i].name %>')"><i class="fa fa-close" ></i></a><br>
+                    <b>Start Date: </b><%= moment(user.education[i].from).format('DD MMM YYYY') %> <b>End Date: </b><%= moment(user.education[i].to).format('DD MMM YYYY') %><br>
+                    <b>Course: </b><%= user.education[i].subject %><br>
+                    <b>GPA/Percentage: </b><%= user.education[i].gpa %>
+                  </div>
+                </li>
+              <% } %>
+              </ul>
+            </div>
+            <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                 <label for="college_name">Colege Name</label><input type="text" placeholder="College/School Name" class="form-control" id="college_name" name="college_name"/>
+            </div>
+            <div class="col-md-6 column" style="padding:0px;margin:0px;">
+               <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="college_from">From</label><input type="date" placeholder="Start Date" class="form-control" id="college_from" name="college_from"/>
+              </div>
+               <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="college_subject">Subject/Course</label><input type="text" placeholder="Subject/Course" class="form-control" id="college_subject" name="college_subject"/>
+              </div>
+               <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="college_gpa">GPA/Percentage</label><input type="text" placeholder="GPA/Percentage" class="form-control" id="college_gpa" name="college_gpa"/>
+              </div>
+              <button onclick="addEducation();" type="button" class="btn btn-default" style="width:50%;"><i class="fa fa-plus"></i> Add Education</button>
+            </div>
+            <div class="col-md-6 column">
+              <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="college_to">To</label><input type="date" placeholder="End Date" class="form-control" id="college_to" name="college_to"/>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row clearfix" style="margin-left:2%;">
+            <h4 style="padding:0px;margin-top:0px;margin-bottom:3px;">Experience</h4>
+            <div class="education-list">
+              <ul class="list-inline">
+              <% for(var i=0;i<user.experience.length;i++){ %>
+                <li>
+                  <div>
+                    <b><%= user.experience[i].position %></b><a title="Remove" onclick="removeExperience('<%= user.experience[i].name %>')"><i class="fa fa-close" ></i></a><br>
+                    <b><%= user.experience[i].name %></b><br>
+                    <b>Start Date: </b><%= moment(user.experience[i].from).format('DD MMM YYYY') %> <b>End Date: </b><%= moment(user.experience[i].to).format('DD MMM YYYY') %><br>
+                    <b>Description: </b><br>
+                    <%= user.experience[i].description %>
+                  </div>
+                </li>
+              <% } %>
+              </ul>
+            </div>
+            <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                 <label for="work_name">Company Name</label><input type="text" placeholder="Company Name" class="form-control" id="work_name" name="work_name"/>
+            </div>
+            <div class="col-md-6 column" style="padding:0px;margin:0px;">
+               <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="work_from">From</label><input type="date" placeholder="Start Date" class="form-control" id="work_from" name="work_position"/>
+              </div>
+               <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="work_position">Position</label><input type="text" placeholder="Position" class="form-control" id="work_position" name="work_position"/>
+              </div>
+               <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                <label for="description">Description:</label><br>
+                <textarea class="form-control" rows="5" style="width:100%;" id="description"></textarea>
+              </div>
+              <button onclick="addExperience();" type="button" class="btn btn-default" style="width:50%;"><i class="fa fa-plus"></i> Add Experience</button>
+            </div>
+            <div class="col-md-6 column">
+              <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                   <label for="work_to">To</label><input type="date" placeholder="End Date" class="form-control" id="work_to" name="work_to"/>
+              </div>
+            </div>
+          </div>
           <div class="form-group">
-             <label for="last_name">Resume<br><small>(Max Sixe: 5 MB, Allowed FileTypes: .pdf, .doc, .docx)</small></label><input type="file" class="form-control"  required name="resume" id="resume">
+             <label for="last_name"><b>Resume</b><br><small>(Max Sixe: 5 MB, Allowed FileTypes: .pdf, .doc, .docx)</small></label><input type="file" class="form-control"  name="resume" id="resume">
           </div>
           <button type="submit" class="btn btn-default" style="width:50%;">Next</button>
         </form>
@@ -393,6 +533,79 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/owl.carousel.js"></script>
 <script src="js/scripts.js"></script>
+<script type="text/javascript">
+  function addSkill(){
+    var skill = $('#skills').val();
+    $.post( "/users/addSkill", { skill:skill })
+      .done(function( data ) {
+        location.reload();
+    });
+  } 
+  function removeSkill(skill){
+    $.post( "/users/removeSkill", { skill:skill })
+      .done(function( data ) {
+        location.reload();
+    });
+  }
+  function addEducation(){
+    var name = $('#college_name').val();
+    var from = $('#college_from').val();
+    var to = $('#college_to').val();
+    var subject = $('#college_subject').val();
+    var gpa = $('#college_gpa').val();
+    $.post( "/users/addEducation", { name:name,from:from,to:to,subject:subject,gpa:gpa })
+      .done(function( data ) {
+        location.reload();
+    });
+  } 
+  function removeEducation(name){
+    $.post( "/users/removeEducation", { name:name })
+      .done(function( data ) {
+        location.reload();
+    });
+  }
+  function addExperience(){
+    var name = $('#work_name').val();
+    var from = $('#work_from').val();
+    var to = $('#work_to').val();
+    var position = $('#work_position').val();
+    var description = $('#description').val();
+    $.post( "/users/addExperience", { name:name,from:from,to:to,position:position,description:description })
+      .done(function( data ) {
+        location.reload();
+    });
+  } 
+  function removeExperience(name){
+    $.post( "/users/removeExperience", { name:name })
+      .done(function( data ) {
+        location.reload();
+    });
+  }
+  $(document).ready(function() {
+    $('#skills').keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        addSkill();
+      }
+    });
+  });
+  $(document).ready(function() {
+    $('#college_name,#college_to,#college_from,#college_subject,#college_gpa').keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        addEducation();
+      }
+    });
+  }); 
+  $(document).ready(function() {
+    $('#work_name,#work_to,#work_from,#work_position,#description').keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        addExperience();
+      }
+    });
+  }); 
+</script>
 <% if(error.length>0) {%>
 <script type="text/javascript">
   var $headerLoginRegister = $('#header .header-login');
@@ -400,7 +613,7 @@
   $headerLoginRegister.each(function () {
     var $this = $(this);
     $this.toggleClass('active');
-    });  
+  });
 </script>
 <% } %>
 </body>

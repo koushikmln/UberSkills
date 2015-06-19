@@ -7251,7 +7251,7 @@ fieldset[disabled] .btn-default-inverse.active {
   margin-bottom: 10px;
   border-radius: 3px;
   border: 1px solid #c4c4c4;
-  color: #d0d0d0;
+  color: #333333;
   font-weight: 600;
   text-transform: capitalize;
 }
@@ -7969,4 +7969,47 @@ fieldset[disabled] .btn-default-inverse.active {
 .shortcodes .vertical.tab-content {
   margin-left: 140px;
   border-left: 3px solid #fdc600;
+}
+/*---------------------- CUSTOM CSS ------------------------------*/
+
+.form-group{
+  padding:1.5%;
+}
+.education-list{
+  padding-top:10px;
+}
+.education-list li{
+  display: block;
+  padding: 4px;
+  margin:3px;
+  border: 1px solid #000000;
+  color: #333333;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.education-list li a {
+  float:right;
+  color: #666666;
+}
+.education-list li a:hover{
+  color: #CC0000;
+}
+.skills-list{
+  padding-top:10px;
+}
+.skills-list li{
+  display: inline-table;
+  padding: 4px;
+  margin:3px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  color: #333333;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.skills-list li a {
+  color: #666666;
+}
+.skills-list li a:hover{
+  color: #CC0000;
 }

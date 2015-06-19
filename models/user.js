@@ -31,16 +31,36 @@ var userSchema = new Schema({
 		country:String,
 		pin:String
 	},
+	profile:{
+		name:String,
+		original_name:String
+	},
+	summary:String,
+	resume:{
+		name:String,
+		original_name:String
+	},
+	areas:Array,
+	skills:Array,
+	education:[{
+		name:String,
+		from:Date,
+		to:Date,
+		subject:String,
+		gpa:String
+	}],
+	experience:[{
+		name:String,
+		from:Date,
+		to:Date,
+		position:String,
+		description:String
+	}],
 	bank_details:{
 		ac_name:String,
 		ac_number:String,
 		branch:String,
 		ifsc:String
-	},
-	areas:Array,
-	resume:{
-		name:String,
-		original_name:String
 	},
 	_level:{
 		type: Number, 
