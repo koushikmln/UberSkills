@@ -25,6 +25,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Koushik M L N",
+  "author": "Koushik M L N, Sumit Agarwal",
   "license": "ISC"
 }
