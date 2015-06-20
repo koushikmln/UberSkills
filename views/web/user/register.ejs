@@ -204,27 +204,26 @@
     </div> <!-- end .container -->
   </header> <!-- end #header -->
   <div class="container" style="margin-top:80px; padding:20px;">
-  <% if(alert){ %>
-  <% if(reg_error.length==0){ %>
+  <% if(reg_success.length>0){ %>
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <div class="alert alert-success alert-dismissable" style="color:#4AC948">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-           Registration Successful. Please Login to Continue.
+        <div class="alert alert-success alert-dismissable" style="background:none;">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%= reg_success[0] %>
         </div>
       </div>
     </div>
-  <% } else{ %>
+    <% } %>
+    <% if(reg_error.length>0){ %>
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <div class="alert alert-success alert-dismissable" style="color:#DD0000">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-           <%= reg_error[0] %>
+        <div class="alert alert-danger alert-dismissable" style="background:none; color:#DD0000">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%= reg_error[0] %>
         </div>
       </div>
     </div>
-  <% } %>
-  <% } %>
+    <% } %>
     <div class="row clearfix">
       <div class="col-md-6 column">
       <h1>User Registration</h1>

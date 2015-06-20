@@ -30,7 +30,7 @@ router.get('/profile',userValidate, function(req, res, next) {
 	res.render('web/userProfile.ejs',{moment:moment,user:req.session.user,error:req.flash('error')});
 });
 router.get('/schedule',userValidate, function(req, res, next) {
-	res.render('web/schedule.ejs',{moment:moment,user:req.session.user,error:req.flash('error')});
+	res.render('web/userSchedule.ejs',{moment:moment,user:req.session.user,error:req.flash('error')});
 });
 
 router.get('/register', function(req, res, next) {
