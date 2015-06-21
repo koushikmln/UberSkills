@@ -397,17 +397,18 @@
         });
         function displayEvent(){
           var eventData = JSON.parse('<%=user.timing%>'.replace(/&#34;/g,'"'));
+          var currentDate=moment($('calender').fullCalendar('getView').intervalStart);
+          var startDate = moment('<%=user.schedule_date%>');
+          var difference = currentDate.diff(startDate,'days');
+          console.log(difference);
           for(i =0;i<eventData.events.length;i++){
             var start = moment(eventData.events[i].start);
             var end = moment(eventData.events[i].end);
-            var difference = end.diff(start,'days');
             var data = {
               start: moment.tz(start.add(difference,'days').format(),"").format(),
               end: moment.tz(end.add(difference,'days').format(),"").format()
             };
-            
             //console.log(start.format() +" "+ end.format() + " Duratoin::"+difference);
-            $('calender').fullCalendar('getView').intervalStart;
             $('#calendar').fullCalendar('renderEvent', data, true);
           }
         }
