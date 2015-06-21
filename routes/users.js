@@ -26,15 +26,37 @@ router.get('/', function(req, res, next) {
 	res.send('respond with a resource');
 });
 
-router.get('/profile',userValidate, function(req, res, next) {
-	res.render('web/userProfile.ejs',{moment:moment,user:req.session.user,error:req.flash('error')});
+router.get('/profile/:id', function(req, res, next) {
+	var userData = null;
+	if(req.session){
+		userData = req.session.user;
+	}
+	users.findById(req.params.id,function(err, user) {
+		if(user!=null){
+			res.render('web/userProfile.ejs',{moment:moment,userData:userData,user:user,error:req.flash('error')});
+		}
+		else {
+			res.redirect("/");
+		}
+	});
 });
-router.get('/schedule',userValidate, function(req, res, next) {
-	res.render('web/userSchedule.ejs',{moment:moment,user:req.session.user,error:req.flash('error')});
+router.get('/schedule/:id', function(req, res, next) {
+	var userData = null;
+	if(req.session){
+		userData = req.session.user;
+	}
+	users.findById(req.params.id,function(err, user) {
+		if(user!=null){
+			res.render('web/userSchedule.ejs',{moment:moment,userData:userData,user:user,error:req.flash('error')});
+		}
+		else {
+			res.redirect("/");
+		}
+	});
 });
 
 router.get('/register', function(req, res, next) {
-	res.render('web/user/register.ejs',{user:req.session.user,error:req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
+	res.render('web/user/register.ejs',{user:req.session.user,error:req.flash('error')});
 });
 
 router.post('/register', function(req, res, next) {
