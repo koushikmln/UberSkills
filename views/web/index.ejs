@@ -96,27 +96,16 @@
         </div>
         <!-- END HEADER-SOCIAL -->
 
-        <!-- HEADER-LANGUAGE -->
-        <div class="header-language">
-          <a href="#">
-            <span>EN</span>
-            <i class="fa fa-chevron-down"></i>
-          </a>
-
-          <ul class="list-unstyled">
-            <li class="active"><a href="#">EN</a></li>
-            <li><a href="#">FR</a></li>
-            <li><a href="#">PT</a></li>
-            <li><a href="#">IT</a></li>
-          </ul>
-        </div> <!-- END HEADER-LANGUAGE -->
-
         <!-- CALL TO ACTION -->
         <div class="header-call-to-action">
-          <% if(user._level!=5) {%>
-            <a href="/users/listing" class="btn btn-default"><i class="fa fa-plus"></i> Be a Consultant</a>
+          <% if(user){ %>
+            <% if(user._level!=5) {%>
+              <a href="/users/listing" class="btn btn-default"><i class="fa fa-plus"></i> Be a Consultant</a>
+            <% }else{ %>
+              <a href="/users/requests" class="btn btn-default">Requests <span class="badge">7</span></a>
+            <% } %>
           <% }else{ %>
-            <a href="/users/requests" class="btn btn-default">Requests <span class="badge">7</span></a>
+            <a href="/users/register" class="btn btn-default"><i class="fa fa-plus"></i> Be a Consultant</a>
           <% } %>
         </div><!-- END .HEADER-CALL-TO-ACTION -->
 
