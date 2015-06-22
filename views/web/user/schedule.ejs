@@ -208,7 +208,7 @@
         <% if(reg_success.length>0){ %>
         <div class="row clearfix">
           <div class="col-md-12 column">
-            <div class="alert alert-success alert-dismissable" style="background:none;">
+            <div class="alert alert-success alert-dismissable" style="background:none;color:#00DD00">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
               <%= reg_success[0] %>
             </div>
@@ -227,7 +227,7 @@
         <% } %>
         <div class="row clearfix">
           <div class="col-md-6 column">
-            <h1>Step 3/4</h1>
+            <h1>Add Schedule</h1>
             <div class="progress progress-striped active">
               <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:75%">
                 <center>Progress:75%</center>
@@ -238,9 +238,9 @@
                 padding:1.5%;
               }
             </style>
-            <h3>Add Schedule<br></h3>
+            <h3><br></h3>
             <div id="calendar"></div>
-            <a href="/"><button type="button" class="btn btn-default" onclick="sendData()" style="width:50%;">Next</button></a>
+            <button type="button" class="btn btn-default" onclick="sendData()" style="width:50%;">Next</button>
 
           </div>
           <div class="col-md-6 column">
@@ -390,6 +390,10 @@
               $('#calendar').fullCalendar('unselect');
             },
             editable: true,
+            eventClick: function(event){
+              if(confirm("Are you Sure you want to Remove the Event?"))
+               $('#calendar').fullCalendar('removeEvents',event._id);
+            }
               // put your options and callbacks here
             });
 
@@ -397,8 +401,10 @@
         });
         function displayEvent(){
           var eventData = JSON.parse('<%=user.timing%>'.replace(/&#34;/g,'"'));
-          var currentDate=moment($('calender').fullCalendar('getView').intervalStart);
+          var currentDate=moment.tz($('#calendar').fullCalendar('getView').intervalStart,"");
           var startDate = moment('<%=user.schedule_date%>');
+          console.log(startDate);
+          console.log(currentDate);
           var difference = currentDate.diff(startDate,'days');
           console.log(difference);
           for(i =0;i<eventData.events.length;i++){
@@ -429,7 +435,8 @@
           }
           $.post( "/users/schedule", { schedule_date:moment.tz(schedule_date,"").format() , timing: JSON.stringify(eventData) })
           .done(function( data ) {
-            alert( data );
+            location.reload();
+            jQuery('html,body').animate({scrollTop:0},0);
           });
           console.log(eventData.events);
         }

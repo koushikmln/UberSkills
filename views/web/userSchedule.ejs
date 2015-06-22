@@ -374,10 +374,11 @@
     });
     function displayEvent(){
       var eventData = JSON.parse('<%=user.timing%>'.replace(/&#34;/g,'"'));
-      var currentDate=moment($('calender').fullCalendar('getView').intervalStart);
+      var currentDate=moment.tz($('#calendar').fullCalendar('getView').intervalStart,"");
       var startDate = moment('<%=user.schedule_date%>');
       var difference = currentDate.diff(startDate,'days');
       console.log(difference);
+      console.log(eventData.events);
       for(i =0;i<eventData.events.length;i++){
         var start = moment(eventData.events[i].start);
         var end = moment(eventData.events[i].end);

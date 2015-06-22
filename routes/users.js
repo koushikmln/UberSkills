@@ -55,6 +55,10 @@ router.get('/schedule/:id', function(req, res, next) {
 	});
 });
 
+router.get('/updateSchedule',userValidate,function(req, res, next) {
+	res.render('web/user/updateSchedule.ejs',{moment:moment,user:req.session.user,'error':req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
+});
+
 router.get('/register', function(req, res, next) {
 	res.render('web/user/register.ejs',{user:req.session.user,error:req.flash('error')});
 });
@@ -543,7 +547,8 @@ router.post('/schedule',userValidate, function(req, res, next) {
 	            //req.flash('registrationError','Database Error. Please try Again');
 	  			res.send("Database Error.")
 	        }else{
-	        	res.send("Schedule Successfully Updated.");
+	        	req.flash('registrationSuccess',"Schedule Successfully Updated.");
+	        	res.send('Successful');
 	            console.log("Successfully added");
 	        }
 		}
