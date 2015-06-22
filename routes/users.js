@@ -60,7 +60,7 @@ router.get('/updateSchedule',userValidate,function(req, res, next) {
 });
 
 router.get('/register', function(req, res, next) {
-	res.render('web/user/register.ejs',{user:req.session.user,error:req.flash('error')});
+	res.render('web/user/register.ejs',{user:req.session.user,error:req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
 });
 
 router.post('/register', function(req, res, next) {
