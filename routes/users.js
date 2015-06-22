@@ -151,8 +151,11 @@ router.get('/listing',userValidate, function(req, res, next) {
 	else if(req.session.user._level==3){
 		res.render('web/user/payment.ejs',{user:req.session.user,'error':req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
 	}
-	else{
+	else if(req.session.user._level==4){
 		res.render('web/user/schedule.ejs',{user:req.session.user,'error':req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
+	}
+	else{
+		res.render('web/user/finish.ejs',{user:req.session.user,error:req.flash('error')});
 	}
 });
 var upload_profile = false;
@@ -539,7 +542,8 @@ router.post('/schedule',userValidate, function(req, res, next) {
 	  users.update({_id: req.user},{
 	  	$set:{
 	  		schedule_date:schedule_date,
-			timing:timing
+			timing:timing,
+			_level:5
 	  	}
 	  },function(err){
 	        if(err){

@@ -108,7 +108,11 @@
 
         <!-- CALL TO ACTION -->
         <div class="header-call-to-action">
-          <a href="#" class="btn btn-default"><i class="fa fa-plus"></i> Add Listing</a>
+          <% if(user._level!=5) {%>
+            <a href="/users/listing" class="btn btn-default"><i class="fa fa-plus"></i> Add Listing</a>
+          <% }else{ %>
+            <a href="/users/requests" class="btn btn-default">Requests <span class="badge">7</span></a>
+          <% } %>
         </div><!-- END .HEADER-CALL-TO-ACTION -->
 
       </div><!-- END .CONTAINER -->

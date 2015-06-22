@@ -61,7 +61,7 @@
           <a href="#" class=""><i class="fa fa-user"></i> Profile</a>
 
           <div>
-            <a href="/users/profile/<%=user._id%>" target="_blank">Edit Profile</a><br>
+            <a href="/users/profile/<%=user._id%>" target="_blank">View Profile</a><br>
             <a href="/users/updateSchedule" target="_blank">View/Update Schedule</a><br>
             <a>Account Settings</a>
           </div>
@@ -113,7 +113,11 @@
 
         <!-- CALL TO ACTION -->
         <div class="header-call-to-action">
-          <a href="/users/listing" class="btn btn-default"><i class="fa fa-plus"></i> Add Listing</a>
+          <% if(user._level!=5) {%>
+            <a href="/users/listing" class="btn btn-default"><i class="fa fa-plus"></i> Be a Consultant</a>
+          <% }else{ %>
+            <a href="/users/requests" class="btn btn-default">Requests <span class="badge">7</span></a>
+          <% } %>
         </div><!-- END .HEADER-CALL-TO-ACTION -->
 
       </div><!-- END .CONTAINER -->
