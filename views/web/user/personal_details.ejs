@@ -226,7 +226,7 @@
     <div class="row clearfix">
       <div class="col-md-6 column">
       <h1>Personal Details</h1>
-        <form role="form" enctype="multipart/form-data" method="POST" action="/users/address">
+        <form role="form" id="data" enctype="multipart/form-data" method="POST" action="/users/address">
         <style>
           .form-group{
             padding:1.5%;
@@ -381,6 +381,29 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/owl.carousel.js"></script>
 <script src="js/scripts.js"></script>
+<script type="text/javascript">
+  $("form#data").submit(function(){
+
+    var formData = new FormData($(this)[0]);
+
+    $.ajax({
+        url: "/users/address",
+        type: 'POST',
+        data: formData,
+        async: false,
+        success: function (data) {
+            location.reload();
+            jQuery('html,body').animate({scrollTop:0},0);
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+
+    return false;
+});
+
+</script>
 <% if(error.length>0) {%>
 <script type="text/javascript">
   var $headerLoginRegister = $('#header .header-login');

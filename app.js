@@ -46,6 +46,8 @@ app.use('/users', users);
 app.use('/users',express.static(path.join(__dirname, 'public')));
 app.use('/users/profile',express.static(path.join(__dirname, 'public')));
 app.use('/users/schedule',express.static(path.join(__dirname, 'public')));
+app.use('/users/update',express.static(path.join(__dirname, 'public')));
+
 app.use('/admin', admin);
 app.use('/admin',express.static(path.join(__dirname, 'public')));
 

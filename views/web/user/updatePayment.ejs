@@ -243,22 +243,22 @@
           }
         </style>
           <div class="form-group">
-             <label for="fee">Consultation Fee<br><small>(Minimum Fee Rs. 500/- per consultation.)</small></label><input type="number" class="form-control" name='fee' value="500"  id="fee" autofocus placeholder="Consultation Fee">
+             <label for="fee">Consultation Fee<br><small>(Minimum Fee Rs. 500/- per consultation.)</small></label><input type="number" class="form-control" name='fee' value="<%=user.fee%>"  id="fee" autofocus placeholder="Consultation Fee">
           </div>
           <div class="form-group">
-             <label for="ac_name">Account Holder's Name</label><input type="text" class="form-control" name='ac_name'  id="ac_name" placeholder="Account Name">
+             <label for="ac_name">Account Holder's Name</label><input type="text" class="form-control" name='ac_name'  id="ac_name" value="<%= user.bank_details.ac_name %>" placeholder="Account Name">
           </div>
           <div class="form-group">
-             <label for="ac_number">Account Number</label><input type="text" class="form-control" name='ac_number'  id="ac_number" placeholder="Account Number">
+             <label for="ac_number">Account Number</label><input type="text" class="form-control" name='ac_number'  id="ac_number" value="<%= user.bank_details.ac_number %>" placeholder="Account Number">
           </div>
           <div class="form-group">
-             <label for="branch">Branch Name</label><input type="text" class="form-control" name='branch'  id="branch" placeholder="Branch Name">
+             <label for="branch">Branch Name</label><input type="text" class="form-control" name='branch'  id="branch" value="<%= user.bank_details.branch %>" placeholder="Branch Name">
           </div>
           <div class="form-group">
-             <label for="ifsc">IFSC Code</label><input type="text" class="form-control" name='ifsc'  id="ifsc" placeholder="IFSC Code">
+             <label for="ifsc">IFSC Code</label><input type="text" class="form-control" name='ifsc'  id="ifsc" value="<%= user.bank_details.ifsc %>" placeholder="IFSC Code">
           </div>
          
-          <button type="submit" class="btn btn-default" style="width:50%;">Next</button>
+          <button type="submit" class="btn btn-default" style="width:50%;">Update</button>
         </form>
       </div>
       <div class="col-md-6 column">

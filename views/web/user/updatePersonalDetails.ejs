@@ -8,9 +8,8 @@
   <title>Globo</title>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-
+  <link rel=" new stylesheet" href="css/style.css">
+  <link rel=" new stylesheet" href="css/bootstrap.css">
   <!-- GOOGLE FONTS -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,600,800%7COpen+Sans:400italic,400,600,700' rel='stylesheet' type='text/css'>
 
@@ -56,9 +55,9 @@
           <a href="#" class=""><i class="fa fa-user"></i> Profile</a>
 
           <div>
-            <p>Edit Profile</p>
-            <p>Change Password</p>
-            <p>Account Settings</p>
+            <a>Edit Profile</a><br>
+            <a>Change Password</a><br>
+            <a>Account Settings</a>
           </div>
 
         </div>
@@ -108,11 +107,7 @@
 
         <!-- CALL TO ACTION -->
         <div class="header-call-to-action">
-          <% if(user._level!=5) {%>
-            <a href="/users/listing" class="btn btn-default"><i class="fa fa-plus"></i> Add Listing</a>
-          <% }else{ %>
-            <a href="/users/requests" class="btn btn-default">Requests <span class="badge">7</span></a>
-          <% } %>
+          <a href="#" class="btn btn-default"><i class="fa fa-plus"></i> Add Listing</a>
         </div><!-- END .HEADER-CALL-TO-ACTION -->
 
       </div><!-- END .CONTAINER -->
@@ -208,7 +203,7 @@
     </div> <!-- end .container -->
   </header> <!-- end #header -->
   <div class="container" style="margin-top:80px; padding:20px;">
-    <% if(reg_success.length>0){ %>
+   <% if(reg_success.length>0){ %>
     <div class="row clearfix">
       <div class="col-md-12 column">
         <div class="alert alert-success alert-dismissable" style="background:none;color:#33DD33">
@@ -221,7 +216,7 @@
     <% if(reg_error.length>0){ %>
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <div class="alert alert-danger alert-dismissable" style="background:none;color:#DD0000">
+        <div class="alert alert-danger alert-dismissable" style="color:#DD0000;background:none;">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <%= reg_error[0] %>
         </div>
@@ -230,35 +225,44 @@
     <% } %>
     <div class="row clearfix">
       <div class="col-md-6 column">
-        <h1>Payment Details</h1>
-        <div class="progress progress-striped active">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-          <center>Progress:50%</center>
-          </div>
-        </div>
-        <form role="form" id="data" method="POST" action="/users/payment">
+      <h1>Personal Details</h1>
+        <form role="form" id="data" enctype="multipart/form-data" method="POST" action="/users/address">
         <style>
           .form-group{
             padding:1.5%;
           }
         </style>
           <div class="form-group">
-             <label for="fee">Consultation Fee<br><small>(Minimum Fee Rs. 500/- per consultation.)</small></label><input type="number" class="form-control" name='fee' value="500"  id="fee" autofocus placeholder="Consultation Fee">
+             <label for="dob">Date of Birth</label><input type="date" value="<%=moment(user.dob).format('YYYY-MM-DD')%>" class="form-control" name='dob' autofocus id="dob" placeholder="Date of Birth">
           </div>
           <div class="form-group">
-             <label for="ac_name">Account Holder's Name</label><input type="text" class="form-control" name='ac_name'  id="ac_name" placeholder="Account Name">
+             <label for="profile">Upload Profile Pic</label><input type="file" class="form-control" name='profile' id="profile">
+             <a href="uploads/profile/<%= user.profile.name %>">Download <i style="text-decoration:none;" class="fa fa-download"></i></a>
+          </div>
+          <div class="form-group" style="padding-left:0px;margin-left:0px;">
+                <label for="description">Brief Description About Yourself:</label><br>
+                <textarea class="form-control" rows="5" style="width:100%;" name="description" id="description"><%=user.summary%></textarea>
+              </div>
+          <h4>Address</h4>
+          <div class="form-group">
+             <label for="line1">Line 1</label><input type="text" value="<%= user.address.line1 %>" class="form-control" name='line1' id="line1" placeholder="Line 1">
           </div>
           <div class="form-group">
-             <label for="ac_number">Account Number</label><input type="text" class="form-control" name='ac_number'  id="ac_number" placeholder="Account Number">
+             <label for="line2">Line 2</label><input type="text" value="<%= user.address.line2 %>" class="form-control" name='line2' id="line2" placeholder="Line 2">
           </div>
           <div class="form-group">
-             <label for="branch">Branch Name</label><input type="text" class="form-control" name='branch'  id="branch" placeholder="Branch Name">
+             <label for="city">City</label><input type="text" value="<%= user.address.city %>" class="form-control" name='city' id="city" placeholder="City">
           </div>
           <div class="form-group">
-             <label for="ifsc">IFSC Code</label><input type="text" class="form-control" name='ifsc'  id="ifsc" placeholder="IFSC Code">
+             <label for="state">State</label><input type="text" value="<%= user.address.state %>" class="form-control" name='state' id="state" placeholder="State">
           </div>
-         
-          <button type="submit" class="btn btn-default" style="width:50%;">Next</button>
+          <div class="form-group">
+             <label for="country">Country</label><input type="text" value="<%= user.address.country %>" class="form-control" name='country' id="country" placeholder="Country">
+          </div>
+          <div class="form-group">
+             <label for="pin">PIN/ZIP</label><input type="text" value="<%= user.address.pin %>" class="form-control" name='pin' id="pin" placeholder="PIN/ZIP">
+          </div>
+          <button type="submit" class="btn btn-default" style="width:50%;">Update</button>
         </form>
       </div>
       <div class="col-md-6 column">
@@ -368,10 +372,6 @@
     </div> <!-- end .copyright-->
   </footer> <!-- end #footer -->
 
-
-
-</div> <!-- end #main-wrapper -->
-
 <!-- Scripts -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
@@ -383,12 +383,27 @@
 <script src="js/owl.carousel.js"></script>
 <script src="js/scripts.js"></script>
 <script type="text/javascript">
-  $( "form#data" ).on( "submit", function( event ) {
-    event.preventDefault();
-    $.post("/users/payment", $(this).serialize()).done(function( data ) {
-      location.reload();
+  $("form#data").submit(function(){
+
+    var formData = new FormData($(this)[0]);
+
+    $.ajax({
+        url: "/users/address",
+        type: 'POST',
+        data: formData,
+        async: false,
+        success: function (data) {
+            location.reload();
+            jQuery('html,body').animate({scrollTop:0},0);
+        },
+        cache: false,
+        contentType: false,
+        processData: false
     });
-  });
+
+    return false;
+});
+
 </script>
 <% if(error.length>0) {%>
 <script type="text/javascript">

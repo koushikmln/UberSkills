@@ -62,7 +62,15 @@
 
           <div>
             <a href="/users/profile/<%=user._id%>" target="_blank">View Profile</a><br>
-            <a href="/users/updateSchedule" target="_blank">View/Update Schedule</a><br>
+            <% if(user._level!=5) {%>
+              <a href="/users/update/personal" target="_blank">Update Personal Details</a><br>
+              <a href="/users/update/resume" target="_blank">Update Resume</a><br>
+              <a href="/users/update/payment" target="_blank">Update Payment</a><br>
+              <a href="/users/update/schedule" target="_blank">Update Schedule</a><br>
+            <% }else{ %>
+              <a href="/users/schedule/<%=user._id%>" target="_blank">View Schedule</a><br>
+            <% } %>
+            
             <a>Account Settings</a>
           </div>
 

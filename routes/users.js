@@ -55,7 +55,16 @@ router.get('/schedule/:id', function(req, res, next) {
 	});
 });
 
-router.get('/updateSchedule',userValidate,function(req, res, next) {
+router.get('/update/personal',userValidate,function(req, res, next) {
+	res.render('web/user/updatePersonalDetails.ejs',{moment:moment,user:req.session.user,'error':req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
+});
+router.get('/update/resume',userValidate,function(req, res, next) {
+	res.render('web/user/updateResume.ejs',{moment:moment,user:req.session.user,'error':req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
+});
+router.get('/update/payment',userValidate,function(req, res, next) {
+	res.render('web/user/updatePayment.ejs',{user:req.session.user,'error':req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
+});
+router.get('/update/schedule',userValidate,function(req, res, next) {
 	res.render('web/user/updateSchedule.ejs',{moment:moment,user:req.session.user,'error':req.flash('error'),reg_error:req.flash('registrationError'),reg_success:req.flash('registrationSuccess')});
 });
 
@@ -174,6 +183,7 @@ router.use('/address',userValidate,multer({
   	  else{
   	  	console.log('Upload Stopped. Please check your filetypes');
   	  	req.flash('registrationError','Only Images with extensions jpeg,jpg,png are allowed.');
+  	  	upload_profile = false;
   	  	return false
   	  }
   },
@@ -183,78 +193,65 @@ router.use('/address',userValidate,multer({
   },
   onFileSizeLimit: function (file) {
 	  console.log('Failed: ', file.originalname)
-	  fs.unlink('./' + file.path) // delete the partially written file
+      req.flash('registrationError','File size Limit Exceeded. Max File Size is 5 MB.');
+      fs.unlink('./' + file.path) // delete the partially written file
+	  upload_profile = false;
   },
   limits:{
   	fileSize:5120*1024,
   }
 }));
 router.post('/address',userValidate, function(req, res, next) {
-  if(req.files.profile == null){
-  	  	var error = req.flash('registrationError');
-  	  	if(error.length>0){
-  	  		req.flash('registrationError',error[0]);
-  	  		res.redirect('listing');
-  	  	}else{
-  	  		console.log("Files Empty.");
-  	  		upload_profile = true;
-  	  	}
-  }
   if(upload_profile){
-  	console.log(req.files);
-	  if(req.files.profile!=null && req.files.profile.truncated){
-	  	req.flash('registrationError','File size Limit Exceeded. Max File Size is 5 MB.');
-	  	fs.unlink('./' + req.files.profile.path);
-	  	res.redirect('listing');
+  	  console.log(req.files);
+  	  console.log(req.body);
+	  var dob = req.body.dob;
+	  var summary = req.body.description;
+	  var line1 = req.body.line1;
+	  var line2 = req.body.line2;
+	  var city = req.body.city;
+	  var state = req.body.state;
+	  var country = req.body.country;
+	  var pin = req.body.pin;
+	  if(req.files.profile!=null){
+	  //console.log(req.files);
+	  var originalname = req.files.profile.originalname;
+	  var name = req.files.profile.name;
 	  }else{
-	  	  console.log(req.body);
-		  var dob = req.body.dob;
-		  var summary = req.body.description;
-		  var line1 = req.body.line1;
-		  var line2 = req.body.line2;
-		  var city = req.body.city;
-		  var state = req.body.state;
-		  var country = req.body.country;
-		  var pin = req.body.pin;
-		if(req.files.profile!=null){
-		  console.log(req.files);
-		  var originalname = req.files.profile.originalname;
-		  var name = req.files.profile.name;
-		}else{
-		  var originalname = null;
-		  var name = null;
-		}
-		  users.update({_id: req.user},{
-		  	$set:{
-		  		address:{
-		  			line1:line1,
-		  			line2:line2,
-		  			city:city,
-		  			state:state,
-		  			country:country,
-		  			pin:pin
-		  		},
-		  		dob:dob,
-		  		profile:{
-		  			name:name,
-		  			original_name:originalname
-		  		},
-		  		summary:summary,
-		  		_level:2
-		  	}
-		  },function(err){
-		        if(err){
-		                console.log(err);
-		                req.flash('registrationError','Database Error. Please try Again');
-		  				res.redirect('listing');
-		        }else{
-		                console.log("Successfully added");
-		        }
-			});
-		  res.redirect('listing');
-  	  }
+	    var originalname = req.session.profile.original_name;
+	    var name = req.session.profile.name;
+	  }
+	  users.update({_id: req.user},{
+	  	$set:{
+	  		address:{
+	  			line1:line1,
+	  			line2:line2,
+	  			city:city,
+	  			state:state,
+	  			country:country,
+	  			pin:pin
+	  		},
+	  		dob:dob,
+	  		profile:{
+	  			name:name,
+	  			original_name:originalname
+	  		},
+	  		summary:summary,
+	  		_level:2
+	  	}
+	  },function(err){
+	        if(err){
+	                console.log(err);
+	                req.flash('registrationError','Database Error. Please try Again');
+	  				res.send("Database Error");
+	        }else{
+	                console.log("Successfully added");
+	                req.flash('registrationSuccess','Personal Details Updated.');
+	                res.send('Successful');    
+	        }
+		});
   	}else{
-	  	res.redirect('listing');
+	  	res.send("Upload Error.");
 	}
 });
 var upload_resume = false;
@@ -269,6 +266,7 @@ router.use('/resume',userValidate,multer({
   	  else{
   	  	console.log('Upload Stopped. Please check your filetypes');
   	  	req.flash('registrationError','Only Word Documents and PDF files are allowed.');
+  	  	upload_resume = false;
   	  	return false
   	  }
   },
@@ -278,7 +276,9 @@ router.use('/resume',userValidate,multer({
   },
   onFileSizeLimit: function (file) {
 	  console.log('Failed: ', file.originalname)
+	  req.flash('registrationError','File size Limit Exceeded. Max File Size is 5 MB.');
 	  fs.unlink('./' + file.path) // delete the partially written file
+	  upload_resume = false;
   },
   limits:{
   	fileSize:5120*1024,
@@ -286,16 +286,6 @@ router.use('/resume',userValidate,multer({
 }));
 
 router.post('/resume',userValidate, function(req, res, next) {
-  if(req.files.resume == null){
-  	  	var error = req.flash('registrationError');
-  	  	if(error.length>0){
-  	  		req.flash('registrationError',error[0]);
-  	  		res.redirect('listing');
-  	  	}else{
-  	  		console.log("Files Empty.");
-  	  		upload_resume = true;
-  	  	}
-  }
   if(upload_resume){
   	  var areas = [];
 	  console.log(req.body);
@@ -311,23 +301,23 @@ router.post('/resume',userValidate, function(req, res, next) {
 	  if(req.body.intern){
 	  	areas.push(req.body.intern);
 	  }
-	  if(req.files.resume!=null && req.files.resume.truncated){
-	  	req.flash('registrationError','File size Limit Exceeded. Max File Size is 5 MB.');
-	  	fs.unlink('./' + req.files.resume.path);
-	  	res.redirect('listing');
-	  }else if(areas.length==0){
+	  if(areas.length==0){
 	  	req.flash('registrationError','Please Select Atleast one Area of Expertise.');
 	  	if(req.files.resume!=null)
 	  		fs.unlink('./' + req.files.resume.path);
-	  	res.redirect('listing');
+	  	res.send("Data Error.");
 	  }else{
 	  	    if(req.files.resume!=null){
 			  console.log(req.files);
 			  var originalname = req.files.resume.originalname;
 			  var name = req.files.resume.name;
 			}else{
-			  var originalname = null;
-			  var name = null;
+			  var originalname = req.session.user.resume.original_name;
+			  var name = req.session.user.resume.name;
+			}
+			var level = 3;
+			if(req.session.user._level>2){
+				level = req.session.user._level;
 			}
 		  users.update({_id: req.user},{
 		  	$set:{
@@ -336,19 +326,22 @@ router.post('/resume',userValidate, function(req, res, next) {
 		  			original_name:originalname
 		  		},
 		  		areas:areas,
-		  		_level:3
+		  		_level:level
 		  	}
 		  },function(err){
 		        if(err){
 		                console.log(err);
+		                req.flash('registrationError','Database Error. Please try after some time.');
+		                res.send("Database Error.");
 		        }else{
 		                console.log("Successfully added");
+		                req.flash('registrationSuccess','Resume Successfully Updated.');
+		                res.send("Success.");
 		        }
 			});
-		  res.redirect('listing');
 		}
   }else{
-	  res.redirect('listing');
+	  res.send("Upload Error.");
 	}
 });
 
@@ -362,7 +355,6 @@ router.post('/addSkill',userValidate, function(req, res, next) {
 	        if(err){
 	                console.log(err);
 	                req.flash('registrationError','Database Error. Please try Again');
-	  				//res.redirect('listing');
 	        }else{
 	                console.log("Successfully added Skill");
 	                res.send("Successful");
@@ -380,7 +372,6 @@ router.post('/removeSkill',userValidate, function(req, res, next) {
 	        if(err){
 	                console.log(err);
 	                req.flash('registrationError','Database Error. Please try Again');
-	  				//res.redirect('listing');
 	        }else{
 	                console.log("Successfully Removed Skill");
 	                res.send("Successful");
@@ -409,7 +400,6 @@ router.post('/addEducation',userValidate, function(req, res, next) {
 		        if(err){
 		                console.log(err);
 		                req.flash('registrationError','Database Error. Please try Again');
-		  				//res.redirect('listing');
 		        }else{
 		                console.log("Successfully added Education");
 		                res.send("Successful");
@@ -434,7 +424,6 @@ router.post('/removeEducation',userValidate, function(req, res, next) {
 	        if(err){
 	                console.log(err);
 	                req.flash('registrationError','Database Error. Please try Again');
-	  				//res.redirect('listing');
 	        }else{
 	                console.log("Successfully Removed Education.");
 	                res.send("Successful");
@@ -463,7 +452,6 @@ router.post('/addExperience',userValidate, function(req, res, next) {
 		        if(err){
 		                console.log(err);
 		                req.flash('registrationError','Database Error. Please try Again');
-		  				//res.redirect('listing');
 		        }else{
 		                console.log("Successfully added Experience");
 		                res.send("Successful");
@@ -498,15 +486,19 @@ router.post('/removeExperience',userValidate, function(req, res, next) {
 });
 router.post('/payment',userValidate, function(req, res, next) {
   console.log(req.body);
-  if(!req.body.ac_name || !req.body.ac_number || !req.body.branch || !req.body.ifsc){
-  	req.flash('registrationError','Please Enter the required fields.');
-  	//res.redirect('listing');
-  }
-  else{
+  var fee = req.body.fee;
+  if(fee && fee < 500){
+  	req.flash('registrationError','Please set a minimum fee of Rs. 500/- per consult.');
+  	res.send("Error");
+  }else{
 	  var ac_name = req.body.ac_name;
 	  var ac_number = req.body.ac_number;
 	  var branch = req.body.branch;
 	  var ifsc = req.body.ifsc;
+	  var level = 4;
+	  if(req.session.user._level>3){
+	      level = req.session.user._level;
+	  }
 	  users.update({_id: req.user},{
 	  	$set:{
 	  		bank_details:{
@@ -515,25 +507,28 @@ router.post('/payment',userValidate, function(req, res, next) {
 	  			branch:branch,
 	  			ifsc:ifsc
 	  		},
-	  		_level:4
+	  		fee:fee,
+	  		_level:level
 	  	}
 	  },function(err){
 	        if(err){
 	                console.log(err);
 	                req.flash('registrationError','Database Error. Please try Again');
-	  				//res.redirect('listing');
+	  				res.send("Error");
 	        }else{
+	        		req.flash('registrationSuccess','Payment Details Updated.');
 	                console.log("Successfully added");
+	                res.send("Successful");
 	        }
 		}
 	  );
 	}
-	res.redirect('listing');
 });
 
 router.post('/schedule',userValidate, function(req, res, next) {
   console.log(req.body);
   if(!req.body.schedule_date || !req.body.timing){
+  	req.flash('registrationError','Error. Please try Again');
   	res.send('Please Enter the required fields.');
   }
   else{
@@ -548,7 +543,7 @@ router.post('/schedule',userValidate, function(req, res, next) {
 	  },function(err){
 	        if(err){
 	            console.log(err);
-	            //req.flash('registrationError','Database Error. Please try Again');
+	            req.flash('registrationError','Database Error. Please try Again');
 	  			res.send("Database Error.")
 	        }else{
 	        	req.flash('registrationSuccess',"Schedule Successfully Updated.");
@@ -565,16 +560,13 @@ var createHash = function(password){
 	return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
 }
 function userValidate(req,res,next){
-	//console.log(req.user);
 	users.findById(req.user,function(err, user) {
 		if(user!=null){
 			req.session.user = user;
 			next();
 		}
 		else {
-			//console.log('Auth Failed');
-      //console.log(req.flash('error')[0]);
-      res.render('web/index.ejs',{'user':req.session.user,'error':req.flash('error')});
+      		res.render('web/index.ejs',{'user':req.session.user,'error':req.flash('error')});
 		}
 	});
 }

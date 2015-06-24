@@ -280,25 +280,41 @@
             <h4 style="padding:0px;margin:0px;">Areas of Expertise</h4>
             <small style="font-weight:normal;">(Select Atleast one.)</small>
             <div class="checkbox checkbox-info checkbox-square">
-              <input id="college" name="college" value="college" class="styled" type="checkbox" >
+              <% if(user.areas.indexOf("college")!=-1){ %>
+                <input id="college" name="college" checked value="college" class="styled" type="checkbox" >
+              <% }else{ %>
+                <input id="college" name="college" value="college" class="styled" type="checkbox" >
+              <% } %>
               <label for="college">
                 College
               </label>
             </div>
             <div class="checkbox checkbox-info checkbox-square">
-              <input id="higher_education" name="higher_education" value="higher_education" class="styled" type="checkbox" >
+              <% if(user.areas.indexOf("higher_education")!=-1){ %>
+                <input id="higher_education" checked name="higher_education" value="higher_education" class="styled" type="checkbox" >
+              <% }else{ %>
+                <input id="higher_education" name="higher_education" value="higher_education" class="styled" type="checkbox" >
+              <% } %>
               <label for="higher_education">
                 Higher Education
               </label>
             </div>
             <div class="checkbox checkbox-info checkbox-square">
-              <input id="job" class="styled" name="job" value="job" type="checkbox" >
+              <% if(user.areas.indexOf("job")!=-1){ %>
+                <input id="job" class="styled" checked name="job" value="job" type="checkbox" >
+              <% }else{ %>
+                <input id="job" class="styled" name="job" value="job" type="checkbox" >
+              <% } %>
               <label for="job">
                 Job
               </label>
             </div>
             <div class="checkbox checkbox-info checkbox-square">
-              <input id="intern" class="styled" name="intern" value="intern" type="checkbox">
+              <% if(user.areas.indexOf("intern")!=-1){ %>
+                <input id="intern" class="styled" checked name="intern" value="intern" type="checkbox">
+              <% }else{ %>
+                <input id="intern" class="styled" name="intern" value="intern" type="checkbox">
+              <% } %>
               <label for="intern">
                 Training/Internship
               </label>
@@ -408,6 +424,7 @@
           </div>
           <div class="form-group">
              <label for="last_name"><b>Resume</b><br><small>(Max Sixe: 5 MB, Allowed FileTypes: .pdf, .doc, .docx)</small></label><input type="file" class="form-control"  name="resume" id="resume">
+             <a href="uploads/resume/<%= user.resume.name %>">Download <i style="text-decoration:none;" class="fa fa-download"></i></a>
           </div>
           <button type="submit" class="btn btn-default" style="width:50%;">Next</button>
         </form>

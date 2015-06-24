@@ -56,6 +56,7 @@ var userSchema = new Schema({
 		position:String,
 		description:String
 	}],
+	fee:Number,
 	bank_details:{
 		ac_name:String,
 		ac_number:String,
